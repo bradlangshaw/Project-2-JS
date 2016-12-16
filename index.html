@@ -16,10 +16,12 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="js/app.js"></script>
   </head>
   <body>
     <form  id="frmmain" name="frmmain" onSubmit="return blockSubmit();">
-      <label for="username">Type Your Username to Start Chat:</label><input type="text" placeholder="Please Type a Username" id="username"></input><button type="submit" class="submit" onClick="start(this.value)">Start</button>
+      <label for="username">Type Your Username to Start Chat:</label><input type="text" placeholder="Please Type a Username" id="username"></input><button type="submit" class="submit">Start</button>
+      <p id="p_status">Status: Normal</p>
       <h2>Welcome<span id="user1"></span></h2><input type="button" name="btn_reset_chat" id="btn_reset_chat" value="Reset Chat" onClick="javascript:resetChat();" />
     <input type="button" name="btn_get_chat" id="btn_get_chat" value="Refresh Chat" onClick="javascript:getChatText();" />
     <table>
@@ -38,6 +40,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/app.js"></script>
+
   </body>
 </html>
