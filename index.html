@@ -18,18 +18,19 @@
     <![endif]-->
   </head>
   <body>
-    <form>
-      <label for="username">Type Your Username to Start Chat:</label><input type="text" placeholder="Please Type a Username"></input><button type="submit" class="submit">Start</button>
-      <h2>Welcome<span id="user1"></span></h2>
+    <form  id="frmmain" name="frmmain" onSubmit="return blockSubmit();">
+      <label for="username">Type Your Username to Start Chat:</label><input type="text" placeholder="Please Type a Username" id="username"></input><button type="submit" class="submit" onClick="start(this.value)">Start</button>
+      <h2>Welcome<span id="user1"></span></h2><input type="button" name="btn_reset_chat" id="btn_reset_chat" value="Reset Chat" onClick="javascript:resetChat();" />
+    <input type="button" name="btn_get_chat" id="btn_get_chat" value="Refresh Chat" onClick="javascript:getChatText();" />
     <table>
         <tr>
-            <td class="tabletop tableleft">Chatroom</td><td class="tabletop">Conversation With:<span id="user2"></span></td>
+            <td class="tabletop tableleft">Conversation With:</td><td class="tabletop">Messsages:</td>
         </tr>
         <tr>
-            <td class="tablemiddle tableleft">Messsages:</td><td class="tablemiddle"  id="conversationbox" colspan="2"></td>
+            <td class="tablemiddle tableleft"><span id="user2"></span></td><td class="tablemiddle" id="div_chat" colspan="2"></td>
         </tr>
         <tr>
-            <td class="tablebottom table" colspan="2"><label for="userMessage">Your Message:</label><input id="sendInput" type="text" placeholder="Type Your Message Here..."/><button class="submit" type="submit" id="send">Send</button></td>
+            <td class="tablebottom table" colspan="2"><label for="txt_message">Your Message:</label><input type="text" id="txt_message" name="txt_message" placeholder="Type Your Message Here..."/><button type="button" name="btn_send_chat" id="btn_send_chat" value="Send" onClick="javascript:sendChatText();" id="send">Send</button></td>
         </tr>
     </table>
     </form> 
@@ -37,6 +38,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
