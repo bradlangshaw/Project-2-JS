@@ -18,13 +18,6 @@ th {text-align: left;}
 <body>
 
 <?php
-$username = intval($_GET['username']);
-
-$sql="INSERT INTO [dbo].[usernames]('user') VALUES ("".$username."")";
-$sql=."SELECT * FROM [dbo].[usernames] WHERE user = "".$username.""";
-
-$result = mysqli_query($conn,$sql);
-
 try {
     $conn = new PDO("sqlsrv:server = tcp:project2-chatroom.database.windows.net,1433; Database = ChatRoom", "BradGit", "MemberThe90s");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -34,6 +27,7 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 
+// SQL Server Extension Sample Code:
 $connectionInfo = array("UID" => "BradGit@project2-chatroom", "pwd" => "MemberThe90s", "Database" => "ChatRoom", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 $serverName = "tcp:project2-chatroom.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
