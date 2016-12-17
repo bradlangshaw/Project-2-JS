@@ -21,7 +21,7 @@
 //server = the database server (usually localhost).
 //username = The user name to connect to the database.
 //password = The password to connect to the database.
-  function db_connect($server = 'project2-ChatRoom.database.windows.net', $username = 'BradGit', $password = 'MemberThe90s', $database = 'ChatRoom', $link = 'db_link') {
+  function db_connect($server = 'project2-ChatRoom.database.windows.net,1433', $username = 'BradGit', $password = 'MemberThe90s', $database = 'ChatRoom', $link = 'db_link') {
     global $$link;
 
     $$link = mysql_connect($server, $username, $password);
