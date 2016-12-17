@@ -24,11 +24,24 @@
   function db_connect($server = 'project2-chatroom.database.windows.net:1433', $username = 'BradGit', $password = 'MemberThe90s', $database = 'ChatRoom', $link = 'db_link') {
     global $$link;
 
-    $$link = mysql_connect($server, $username, $password);
+    try {
+      $$link = new PDO("sqlsrv:server = tcp:project2-chatroom.database.windows.net,1433; Database = ChatRoom", "BradGit", "MemberThe90s");
+      $$link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch (PDOException $e) {
+        print("Error connecting to SQL Server.");
+        die(print_r($e));
+    }
 
+    // SQL Server Extension Sample Code:
+    $connectionInfo = array("UID" => "BradGit@project2-chatroom", "pwd" => "MemberThe90s", "Database" => "ChatRoom", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+    $serverName = "tcp:project2-chatroom.database.windows.net,1433";
+    $$link = sqlsrv_connect($serverName, $connectionInfo);
+    
     if ($$link) mysql_select_db($database);
-
+    
     return $$link;
+    
   }
 //Function to handle database errors.
   function db_error($query, $errno, $error) { 
