@@ -15,7 +15,7 @@
 */
 
 //Make the database connection.
-  db_connect() or die('Unable to connect to database server!');
+  db_connect() or die('Unable to connect to database server!1');
 
 //You will need to replace the parameters below with the values for your database connection
 //server = the database server (usually localhost).
